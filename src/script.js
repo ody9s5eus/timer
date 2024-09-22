@@ -9,15 +9,15 @@ const resetLapBtn = document.getElementById('resetLapBtn');
 const lapList = document.getElementById('lapList');
 
 function formatTime(ms) {
-    const totalSeconds = Math.floor(ms / 100);
-    const seconds = totalSeconds % 60;
-    const minutes = Math.floor(totalSeconds / 60);
-    const centiseconds = ms % 100;
+    const totalCentiseconds = Math.floor(ms / 10); // 0.01초 단위로 계산
+    const seconds = Math.floor(totalCentiseconds / 100) % 60;
+    const minutes = Math.floor(totalCentiseconds / 6000);
+    const centiseconds = totalCentiseconds % 100;
     return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${String(centiseconds).padStart(2, '0')}`;
 }
 
 function updateTimer() {
-    elapsedTime = Date.now() - startTime;
+    elapsedTime = Date.now() - startTime; // 현재 시간 - 시작 시간
     timerDisplay.textContent = formatTime(elapsedTime);
 }
 
@@ -27,8 +27,8 @@ function toggleLapListVisibility() {
 
 startPauseBtn.addEventListener('click', () => {
     if (!isRunning) {
-        startTime = Date.now() - elapsedTime;
-        timerInterval = setInterval(updateTimer, 10);
+        startTime = Date.now() - elapsedTime; // 이전 경과 시간을 고려하여 시작
+        timerInterval = setInterval(updateTimer, 10); // 10ms마다 업데이트
         startPauseBtn.textContent = 'Pause';
         resetLapBtn.textContent = 'Lap';
         isRunning = true;
