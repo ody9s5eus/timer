@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 60px 40px; /* 위/아래 60px, 좌우 40px으로 설정 */
+  border-radius: 20px;
+  box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+  max-width: 400px;
+  height: auto;
+}
+
+.timer {
+  font-size: 5em;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+button {
+  width: 150px;
+  height: 60px;
+  padding: 10px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  transform: translateY(-4px);
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+#startPauseBtn {
+  background: linear-gradient(45deg, #ff6a6a, #ff6a88);
+  color: white;
+}
+
+#resetLapBtn {
+  background: linear-gradient(45deg, #6a94ff, #6a88ff);
+  color: white;
+}
+
+.lap-list {
+  list-style: none;
+  margin-top: 30px;
+  max-height: 200px;
+  overflow-y: hidden; /* 기본값을 hidden으로 설정 */
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.lap-list:not(:empty) {
+  overflow-y: auto; /* 내용이 있을 때만 auto로 설정 */
+}
+
+li {
+  font-size: 1.5em;
+  color: #333;
+  padding: 5px 10px;
+}
