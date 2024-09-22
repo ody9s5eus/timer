@@ -43,9 +43,13 @@ body {
 .timer {
   font-size: 10vw; /* 너비에 따라 타이머 크기 설정 */
   margin-bottom: 5vh; /* 화면 높이에 비례한 여백 */
+  display: flex; /* 플렉스 박스로 설정 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
   color: #333;
   aspect-ratio: 3 / 1; /* 타이머의 너비와 높이 비율 설정 */
 }
+
 
 .buttons {
   display: flex;
