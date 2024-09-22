@@ -6,41 +6,59 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  background: linear-gradient(135deg, #74ebd5, #acb6e5, #ff6a88, #6a94ff);
+  background-size: 400% 400%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: gradientShift 15s ease infinite;
+  overflow: hidden;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .container {
   text-align: center;
   background: rgba(255, 255, 255, 0.9);
-  padding: 60px 40px; /* 위/아래 60px, 좌우 40px으로 설정 */
+  padding: 4vh 3vw;
   border-radius: 20px;
   box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3);
   position: relative;
-  max-width: 400px;
+  width: 60vw; /* 반응형 너비 설정 */
   height: auto;
+  aspect-ratio: 4 / 3; /* 컨테이너 비율 설정 */
 }
 
 .timer {
-  font-size: 5em;
-  margin-bottom: 30px;
+  font-size: 10vw; /* 너비에 따라 타이머 크기 설정 */
+  margin-bottom: 5vh; /* 화면 높이에 비례한 여백 */
   color: #333;
+  aspect-ratio: 3 / 1; /* 타이머의 너비와 높이 비율 설정 */
 }
 
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 5vw;
 }
 
 button {
-  width: 150px;
-  height: 60px;
-  padding: 10px;
-  font-size: 1.5em;
+  width: 20vw; /* 너비 비율 설정 */
+  height: auto;
+  aspect-ratio: 2 / 1; /* 버튼의 너비와 높이 비율 설정 */
+  padding: 1vh;
+  font-size: 3vw;
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -68,9 +86,9 @@ button:active {
 
 .lap-list {
   list-style: none;
-  margin-top: 30px;
-  max-height: 200px;
-  overflow-y: hidden; /* 기본값을 hidden으로 설정 */
+  margin-top: 3vh;
+  max-height: 20vh;
+  overflow-y: hidden;
   padding: 0;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -78,11 +96,31 @@ button:active {
 }
 
 .lap-list:not(:empty) {
-  overflow-y: auto; /* 내용이 있을 때만 auto로 설정 */
+  overflow-y: auto;
 }
 
 li {
-  font-size: 1.5em;
+  font-size: 2.5vw;
   color: #333;
   padding: 5px 10px;
+}
+
+/* 미디어 쿼리로 모바일과 태블릿에서 반응형 조정 */
+@media (max-width: 768px) {
+  .container {
+    padding: 5vh 5vw;
+    width: 90vw; /* 더 작은 화면에서 너비 조정 */
+    aspect-ratio: 3 / 2; /* 작은 화면에서의 비율 설정 */
+  }
+
+  .timer {
+    font-size: 12vw;
+    aspect-ratio: 4 / 1; /* 타이머 비율 설정 */
+  }
+
+  button {
+    width: 30vw;
+    aspect-ratio: 2 / 1; /* 버튼 비율 설정 */
+    font-size: 4vw;
+  }
 }
