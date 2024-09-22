@@ -1,6 +1,6 @@
 # 🎉 타이머 프로젝트 ⏱️
 
-![타이머 스크린샷](path/to/your/screenshot.png)
+![타이머 스크린샷](screenshot.png)
 
 ## 🚀 개요
 
